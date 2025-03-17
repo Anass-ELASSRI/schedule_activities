@@ -13,14 +13,16 @@ return new class extends Migration
     {
         Schema::create('activities', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
+            $table->unsignedBigInteger('user_id');  // Define the user_id column first
+            $table->foreign('user_id')->references('id')->on('users');
             $table->string('title');
             $table->text('description')->nullable();
             $table->date('event_date');                 
             $table->time('start_time')->nullable();      
             $table->time('end_time')->nullable();        
             $table->boolean('is_all_day')->default(true);
-            $table->unsignedTinyInteger('type')->default(1); // 1: Personal, 2: Work, 3: Family, 4: Study, 5: Others
+            $table->unsignedTinyInteger('type'); // personal, work, family, study, others
+            $table->unsignedTinyInteger('category'); // task OR event
             $table->timestamps();
         });
     }

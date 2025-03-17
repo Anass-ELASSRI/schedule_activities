@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('activity_instances', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('event_id')->constrained()->onDelete('cascade');
+            $table->unsignedBigInteger('activity_id');  // Define the user_id column first
+            $table->foreign('activity_id')->references('id')->on('activities');
             $table->date('occurrence_date');              // Date of the specific instance
             $table->time('start_time')->nullable();        // NULL if the original event is all-day
             $table->time('end_time')->nullable();          // NULL if the original event is all-day
