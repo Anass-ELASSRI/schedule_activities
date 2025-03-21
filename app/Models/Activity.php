@@ -9,8 +9,8 @@ class Activity extends Model
     protected $fillable = [
         'title',
         'description',
-        'end_time',
         'start_time',
+        'end_time',
         'is_all_day',
         'type',
     ];
@@ -32,7 +32,7 @@ class Activity extends Model
         self::OTHERS => 'Others',
     ];
 
-    const TYPE = [
+    const TYPES = [
         self::TASK => 'Task',
         self::EVENT => 'Event',
     ];
@@ -64,7 +64,7 @@ class Activity extends Model
 
     public function getTypeAttribute($value)
     {
-        return self::TYPE[$value];
+        return self::TYPES[$value];
     }
     public function getCategoryAttribute($value)
     {

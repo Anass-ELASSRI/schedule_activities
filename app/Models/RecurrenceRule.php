@@ -8,27 +8,23 @@ class RecurrenceRule extends Model
 {
     protected $fillable = [
         'activity_id',
-        'frequency',
-        'interval',
         'rule',
-        'occurrences',
-        'end_date',
     ];
 
-    const DAILY = 1;
-    const WEEKLY = 2;
-    const MONTHLY = 3;
-    const YEARLY = 4;
-    const PERIOD = 5;
-    const PERIODS = 6;
+    const SECONDLY = 'RRule.SECONDLY';
+    const MINUTELY = 'RRule.MINUTELY';
+    const HOURLY = 'RRule.HOURLY';
+    const DAILY = 'RRule.DAILY';
+    const WEEKLY = 'RRule.WEEKLY';
+    const MONTHLY = 'RRule.MONTHLY';
+    const YEARLY = 'RRule.YEARLY';
 
+    
     const FREQUENCY = [
         self::DAILY => 'Daily',
         self::WEEKLY => 'Weekly',
         self::MONTHLY => 'Monthly',
         self::YEARLY => 'Yearly',
-        self::PERIOD => 'Period',
-        self::PERIODS => 'Periods',
     ];
 
     const TASK = 1;
@@ -40,13 +36,13 @@ class RecurrenceRule extends Model
     ];
 
     const WEEKDAYS = [
-        'su' => 'Sunday',
-        'mo' => 'Monday',
-        'tu' => 'Tuesday',
-        'we' => 'Wednesday',
-        'th' => 'Thursday',
-        'fr' => 'Friday',
-        'sa' => 'Saturday',
+        'RRule.SU' => 'Sunday',
+        'RRule0.MO' => 'Monday',
+        'RRule0.TU' => 'Tuesday',
+        'RRule0.WE' => 'Wednesday',
+        'RRule0.TH' => 'Thursday',
+        'RRule0.FR' => 'Friday',
+        'RRule0.SA' => 'Saturday',
     ];
 
     public function activity()
