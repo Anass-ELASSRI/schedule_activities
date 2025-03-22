@@ -12,16 +12,22 @@ class CreateActivity extends Component
     public $type;
     public $types = Activity::TYPES;
 
-    protected $listeners = ['create'];
+    // Define validation rules
+    protected $rules = [
+        'title' => 'required',
+        'description' => 'required',
+        'type' => 'required',
+    ];
 
 
-    public function create()
+    protected $listeners = ['createActivity'];
+
+    public function createActivity()
     {
-        $this->validate([
-            'title' => 'required',
-            'description' => 'nullable',
-            'type' => 'required',
-        ]);
+        // Validate the input data
+        dd($this->type,$this->description,$this->title);
+        $this->validate();
+
         dd($this->types);
         // Activity::create([
         //     'title' => $this->title,
@@ -31,7 +37,6 @@ class CreateActivity extends Component
 
         $this->reset();
     }
-
 
     public function render()
     {

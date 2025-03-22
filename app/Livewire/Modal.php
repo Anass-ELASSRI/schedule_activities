@@ -3,30 +3,28 @@
 namespace App\Livewire;
 
 use Livewire\Component;
-use Livewire\Features\SupportAttributes\AttributeCollection;
 
 class Modal extends Component
 {
     public $isOpen = true;
-    public $title;  // This property will hold the modal title
-    public $subTitle;  // This property will hold the modal subtitle
-    public $content;  // This property will hold the dynamic content
-    public $backButtonText = 'Back';
-    public $nextButtonText = 'Next';
-    public $closeButtonText = 'Close';
-    public $confirmButtonText = 'Confirm';
-    public $showBackButton = false;
-    public $showNextButton = false;
-    public $showCloseButton = true;
-    public $showConfirmButton = true;
-    public $showFooter = true;
-    public $showHeader = true;
-    public $maxWidth = "[500px]";
+    public $modalTitle;
+    public $modalSubTitle;
+    public $content;
+    public $backButtonText;
+    public $nextButtonText;
+    public $closeButtonText;
+    public $confirmButtonText;
+    public $showBackButton;
+    public $showNextButton;
+    public $showCloseButton;
+    public $showConfirmButton;
+    public $showFooter;
+    public $showHeader;
+    public $maxWidth;
     public $confirmAction;
 
-    protected $listeners = ['showModal' => 'open'];
 
-    public function openModal()
+    public function showModal()
     {
         $this->isOpen = true;
     }
@@ -72,9 +70,8 @@ class Modal extends Component
 
     public function handleConfirmAction()
     {
-        if ($this->confirmAction) {
-            $this->emit($this->confirmAction);
-        }
+        if ($this->confirmAction)
+            $this->dispatch($this->confirmAction);
     }
 
     public function render()

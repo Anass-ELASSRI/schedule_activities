@@ -8,26 +8,26 @@ use Illuminate\View\Component;
 
 class ModalWrapper extends Component
 {
-    public $title;  // This property will hold the modal title
-    public $subTitle;  // This property will hold the modal subtitle
+    public $modalTitle;  // This property will hold the modal title
+    public $modalSubTitle;  // This property will hold the modal subtitle
     public $content;  // This property will hold the dynamic content
-    public $backButtonText = 'Back';    
-    public $nextButtonText = 'Next';    
-    public $closeButtonText = 'Close';    
-    public $confirmButtonText = 'Confirm';
-    public $showBackButton = false;
-    public $showNextButton = false;
-    public $showCloseButton = true;
-    public $showConfirmButton = true;    
-    public $showFooter = true;
-    public $showHeader = true;
-    public $maxWidth = "[500px]";
+    public $backButtonText;    
+    public $nextButtonText;    
+    public $closeButtonText;    
+    public $confirmButtonText;
+    public $showBackButton;
+    public $showNextButton;
+    public $showCloseButton;
+    public $showConfirmButton;    
+    public $showFooter;
+    public $showHeader;
+    public $maxWidth;
     public $confirmAction;
 
 
     public function __construct(
-        $title = 'Modal Title',
-        $subTitle = 'Modal Subtitle',
+        $modalTitle = 'Modal Title',
+        $modalSubTitle = 'Modal Subtitle',
         $backButtonText = 'Back',
         $nextButtonText = 'Next',
         $closeButtonText = 'Close',
@@ -41,8 +41,8 @@ class ModalWrapper extends Component
         $maxWidth = "500px",
         $confirmAction = null
     ) {
-        $this->title = $title;
-        $this->subTitle = $subTitle;
+        $this->modalTitle = $modalTitle;
+        $this->modalSubTitle = $modalSubTitle;
         $this->backButtonText = $backButtonText;
         $this->nextButtonText = $nextButtonText;
         $this->closeButtonText = $closeButtonText;

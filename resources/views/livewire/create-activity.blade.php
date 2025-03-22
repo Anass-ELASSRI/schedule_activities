@@ -1,7 +1,7 @@
 <div>
-    <x-modal-wrapper title="Create new activity" subTitle='' confirmAction="create" >
-        @livewire('input', ['type' => 'text', 'label' => 'Title', 'options'=> ['wire:model' => 'title']])
-        @livewire('input', ['type' => 'textarea', 'label' => 'Description', 'options'=> ['wire:model' => 'description']])
-        @livewire('input', ['type' => 'select', 'label' => 'Type', 'selectOptions' => $types, 'options'=> ['wire:model' => 'type']])
+    <x-modal-wrapper modalTitle="Create new activity" modalSubTitle='' confirmAction="createActivity" >
+        @livewire('input', ['inputType' => 'text', 'inputLabel' => 'Title'])
+        @livewire('input', ['inputType' => 'textarea', 'inputLabel' => 'Description'])
+        @livewire('input', ['inputType' => 'select', 'inputLabel' => 'Type', 'selectOptions' => $types])
     </x-modal-wrapper>
 </div>
